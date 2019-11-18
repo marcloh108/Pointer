@@ -1,31 +1,24 @@
 #include <stdio.h>
-void swapNumbers(int *x, int *y, int *z);
+void Factorial(int n, int *f);
 
-void swapNumbers(int *x, int *y, int *z)
+void Factorial(int n, int *f)
 {
-    int tmp;
-    tmp = *y;
-    *y = *x;
-    *x = *z;
-    *z = tmp;
+    int i;
+    *f = 1;
+    for(i=1;i<=n;i++)
+        *f=*f*i;
 }
 
 
 int main()
 {
-   int e1, e2, e3;
-   printf("Input the value of 1st element : ");
-   scanf("%d", &e1);
-   printf("Input the value of 2nd element : ");
-   scanf("%d", &e2);
-   printf("Input the value of 3rd element : ");
-   scanf("%d", &e3);
+    int fact;
+    int num1;
+    printf("Input a number : ");
+    scanf("%d", &num1);
 
-   printf("\n The value before swaping are : \n");
-   printf(" element 1 = %d\n element 2 = %d\n element 3 = %d\n", e1,e2,e3);
-   swapNumbers(&e1, &e2, &e3);
-   printf("\n The value after swapping are : \n");
-   printf(" element 1 = %d\n element 2 = %d\n element 3 = %d\n", e1,e2,e3);
+    Factorial(num1, &fact);
+    printf("The factorial of %d is : %d \n\n",num1,fact);
    return 0;
 
 }
