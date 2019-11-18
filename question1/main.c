@@ -1,35 +1,30 @@
 #include <stdio.h>
-#include <stdlib.h>
+int calculateLength(char*);
+
+int calculateLength(char* ch) // ch = base address of array str1 ( &str1[0]  )
+{
+   int ctr = 0;
+   while (*ch != '\0')
+   {
+      ctr++;
+      ch++;
+   }
+
+   return ctr;
+}
 
 int main()
 {
-    int i, num;
-    float *data;
+   char str1[25];
+   int l;
+    printf("\n\n Pointer : Calculate the length of the string :\n");
+    printf("---------------------------------------------------\n");
 
-    printf("Input total number of elements(1 to 100): ");
-    scanf("%d", &num);
+   printf(" Input a string : ");
+   fgets(str1, sizeof str1, stdin);
 
-    data = (float*) calloc(num, sizeof(float));
+   l = calculateLength(str1);
+   printf(" The length of the given string %s is : %d ", str1, l-1);
+   printf("\n\n");
 
-    if(data == NULL)
-    {
-        printf("Error!!! memory not allocated.");
-        exit(0);
-    }
-    printf("\n");
-
-    for(i=0;i<num;++i)
-    {
-        printf("Number %d: ", i+1);
-        scanf("%f", data + i);
-    }
-    for (i=1;i<num;++i)
-    {
-        if(*data < *(data + i))
-            *data = *(data + i);
-    }
-
-    printf("The Largest element is : %.2f", *data);
-
-    return 0;
 }
