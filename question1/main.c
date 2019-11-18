@@ -1,24 +1,26 @@
 #include <stdio.h>
-void Factorial(int n, int *f);
-
-void Factorial(int n, int *f)
-{
-    int i;
-    *f = 1;
-    for(i=1;i<=n;i++)
-        *f=*f*i;
-}
-
 
 int main()
 {
-    int fact;
-    int num1;
-    printf("Input a number : ");
-    scanf("%d", &num1);
+    char str1[50];
+    char *pt;
+    int ctrV, ctrC;
+    printf("Input a string: ");
+    fgets(str1, sizeof(str1), stdin);
 
-    Factorial(num1, &fact);
-    printf("The factorial of %d is : %d \n\n",num1,fact);
+    pt = str1;
+
+    ctrV = ctrC = 0;
+    while(*pt!='\0')
+    {
+        if ( *pt == 'A'|| *pt == 'E' || *pt == 'I' || *pt == 'O' || *pt == 'U' || *pt == 'a' || *pt == 'e' || *pt == 'i' || *pt == 'o' || *pt == 'u')
+            ctrV++;
+        else
+            ctrC++;
+            pt++;
+
+    }
+    printf("Number of vowels : %d\nNumber of consonants : %d\n", ctrV,ctrC-1);
    return 0;
 
 }
