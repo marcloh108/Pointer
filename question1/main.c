@@ -3,7 +3,7 @@
 int main()
 {
     int arr1[10];
-    int i, n, sum = 0;
+    int i, n;
     int *pt;
 
     printf("Input the number of elements to store in the array (max 10) : ");
@@ -14,14 +14,17 @@ int main()
     {
         printf("element - %d : ", i+1);
         scanf("%d", &arr1[i]);
-    }
-
-    pt = arr1;
-
-    for(i = 0; i < n; i++)
-    {
-        sum = sum + *pt;
         pt++;
     }
-    printf("The sum of array is : %d\n\n", sum);
+
+    pt = &arr1[n-1];
+
+    printf("\n The elements of array in reverse order are :");
+
+    for(i = n; i > 0; i--)
+    {
+        printf("\n element - %d : %d ", i, *pt);
+        pt--;
+    }
+    printf("\n\n");
 }
