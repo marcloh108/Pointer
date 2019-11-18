@@ -1,23 +1,21 @@
 #include <stdio.h>
-
 int main()
 {
-    int fno, sno, *ptr, *qtr, sum;
+    long fno, sno;
 
-    printf("\n\nPointer : Add two numbers :\n");
-    printf("---------------------------------\n");
+    printf("\n\nPointer : Find the maximum number between two numbers\n");
+    printf("------------------------------------------------------\n");
 
     printf(" Input the first number : ");
-    scanf("%d" , &fno);
+    scanf("%ld" , &fno);
     printf(" Input the second number : ");
-    scanf("%d", &sno);
+    scanf("%ld", &sno);
 
-    ptr = &fno;
-    qtr = &sno;
-
-    sum = *ptr + *qtr;
-
-    printf(" The sum of the external numbers is %d\n\n", sum);
-
+    if ( fno > sno)
+    {
+        printf("%ld is the maximum number", fno);
+    }
+    else
+        printf("%ld is the maximum number", sno);
     return 0;
 }
