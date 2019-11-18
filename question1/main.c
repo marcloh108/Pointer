@@ -1,30 +1,31 @@
 #include <stdio.h>
-int calculateLength(char*);
+void swapNumbers(int *x, int *y, int *z);
 
-int calculateLength(char* ch) // ch = base address of array str1 ( &str1[0]  )
+void swapNumbers(int *x, int *y, int *z)
 {
-   int ctr = 0;
-   while (*ch != '\0')
-   {
-      ctr++;
-      ch++;
-   }
-
-   return ctr;
+    int tmp;
+    tmp = *y;
+    *y = *x;
+    *x = *z;
+    *z = tmp;
 }
+
 
 int main()
 {
-   char str1[25];
-   int l;
-    printf("\n\n Pointer : Calculate the length of the string :\n");
-    printf("---------------------------------------------------\n");
+   int e1, e2, e3;
+   printf("Input the value of 1st element : ");
+   scanf("%d", &e1);
+   printf("Input the value of 2nd element : ");
+   scanf("%d", &e2);
+   printf("Input the value of 3rd element : ");
+   scanf("%d", &e3);
 
-   printf(" Input a string : ");
-   fgets(str1, sizeof str1, stdin);
-
-   l = calculateLength(str1);
-   printf(" The length of the given string %s is : %d ", str1, l-1);
-   printf("\n\n");
+   printf("\n The value before swaping are : \n");
+   printf(" element 1 = %d\n element 2 = %d\n element 3 = %d\n", e1,e2,e3);
+   swapNumbers(&e1, &e2, &e3);
+   printf("\n The value after swapping are : \n");
+   printf(" element 1 = %d\n element 2 = %d\n element 3 = %d\n", e1,e2,e3);
+   return 0;
 
 }
