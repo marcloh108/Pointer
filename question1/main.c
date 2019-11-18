@@ -1,40 +1,35 @@
 #include <stdio.h>
-
-void changePosition( char *ch1, char *ch2)
-{
-    char tmp;
-    tmp = *ch1;
-    *ch1 = *ch2;
-    *ch2 = tmp;
-}
-
-void charPermu(char *cht, int stno, int endno)
-{
-    int i;
-    if (stno == endno)
-    {
-        printf("%s ", cht);
-    }
-    else
-    {
-
-        for(i = stno;i<=endno;i++)
-        {
-            changePosition((cht+stno),(cht+i));
-            charPermu(cht, stno+1, endno);
-            changePosition((cht+stno), (cht+i));
-        }
-    }
-}
+#include <stdlib.h>
 
 int main()
 {
-   char str[] = "abcd";
-   printf("\n\n Pointer : Generate perumtations of a given string :\n");
-   printf("------------------------------------------------------------\n");
-   int n = strlen(str);
-   printf(" The permutations of the string are : \n");
-   charPermu(str, 0, n-1);
-   printf("\n\n");
-   return 0;
+    int i, num;
+    float *data;
+
+    printf("Input total number of elements(1 to 100): ");
+    scanf("%d", &num);
+
+    data = (float*) calloc(num, sizeof(float));
+
+    if(data == NULL)
+    {
+        printf("Error!!! memory not allocated.");
+        exit(0);
+    }
+    printf("\n");
+
+    for(i=0;i<num;++i)
+    {
+        printf("Number %d: ", i+1);
+        scanf("%f", data + i);
+    }
+    for (i=1;i<num;++i)
+    {
+        if(*data < *(data + i))
+            *data = *(data + i);
+    }
+
+    printf("The Largest element is : %.2f", *data);
+
+    return 0;
 }
