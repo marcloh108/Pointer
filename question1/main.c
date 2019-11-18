@@ -1,22 +1,40 @@
 #include <stdio.h>
+
+void changePosition( char *ch1, char *ch2)
+{
+    char tmp;
+    tmp = *ch1;
+    *ch1 = *ch2;
+    *ch2 = tmp;
+}
+
+void charPermu(char *cht, int stno, int endno)
+{
+    int i;
+    if (stno == endno)
+    {
+        printf("%s ", cht);
+    }
+    else
+    {
+
+        for(i = stno;i<=endno;i++)
+        {
+            changePosition((cht+stno),(cht+i));
+            charPermu(cht, stno+1, endno);
+            changePosition((cht+stno), (cht+i));
+        }
+    }
+}
+
 int main()
 {
-   int arr1[25], i,n;
-   printf("\n\n Pointer : Store and retrieve elements from an array :\n");
+   char str[] = "abcd";
+   printf("\n\n Pointer : Generate perumtations of a given string :\n");
    printf("------------------------------------------------------------\n");
-   printf(" Input the number of elements to store in the array :");
-   scanf("%d",&n);
-
-   printf(" Input %d number of elements in the array :\n",n);
-   for(i=0;i<n;i++)
-      {
-      printf(" element - %d : ",i);
-      scanf("%d",arr1+i);
-      }
-   printf(" The elements you entered are : \n");
-   for(i=0;i<n;i++)
-      {
-      printf(" element - %d : %d \n",i,*(arr1+i));
-      }
-       return 0;
+   int n = strlen(str);
+   printf(" The permutations of the string are : \n");
+   charPermu(str, 0, n-1);
+   printf("\n\n");
+   return 0;
 }
