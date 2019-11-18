@@ -1,23 +1,22 @@
 #include <stdio.h>
-
-long addTwonumbers(long *n1, long *n2)
-{
-    long sum;
-    sum = *n1 + *n2;
-    return sum;
-}
 int main()
 {
-    long fno, sno, *ptr, *qtr, sum;
+   int arr1[25], i,n;
+   printf("\n\n Pointer : Store and retrieve elements from an array :\n");
+   printf("------------------------------------------------------------\n");
+   printf(" Input the number of elements to store in the array :");
+   scanf("%d",&n);
 
-    printf("\n\nPointer : Add two numbers using call by reference:\n");
-    printf("------------------------------------------------------\n");
-
-    printf(" Input the first number : ");
-    scanf("%ld" , &fno);
-    printf(" Input the second number : ");
-    scanf("%ld", &sno);
-    sum = addTwonumbers(&fno, &sno);
-    printf(" The sum of %ld and %ld is %ld\n\n", fno, sno, sum);
-    return 0;
+   printf(" Input %d number of elements in the array :\n",n);
+   for(i=0;i<n;i++)
+      {
+      printf(" element - %d : ",i);
+      scanf("%d",arr1+i);
+      }
+   printf(" The elements you entered are : \n");
+   for(i=0;i<n;i++)
+      {
+      printf(" element - %d : %d \n",i,*(arr1+i));
+      }
+       return 0;
 }
