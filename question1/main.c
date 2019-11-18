@@ -2,24 +2,26 @@
 
 int main()
 {
-    char alph[27];
-    int x;
-    char *ptr;
-    ptr = alph;
-
-    for(x=0;x<26;x++)
+    char str1[50];
+    char revstr[50];
+    char *stptr = str1;
+    char *rvptr = revstr;
+    int i = 1;
+    printf("Input a string : ");
+    scanf("%s", str1);
+    while(*stptr)
     {
-        *ptr=x+'A';
-        ptr++;
+        stptr++;
+        i++;
     }
-    ptr = alph;
-
-    printf("The Alphabets are : \n");
-    for (x=0;x<26;x++)
+    while(i>=0)
     {
-        printf(" %c ", *ptr);
-        ptr++;
-    }
-    printf("\n\n");
+        stptr--;
+        *rvptr = *stptr;
+        rvptr++;
+        --i;
+       }
+     *rvptr='\0';
+    printf(" Reverse of the string is : %s\n\n", revstr);
     return 0;
 }
